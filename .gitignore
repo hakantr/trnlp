@@ -1,0 +1,11 @@
+/trnlp/data/oku.py
+/trnlp/data/short_tr_lex.pbz2.json
+/trnlp/data/dafVerb.pbz2.json
+/trnlp/data/infVerb.pbz2.json
+/trnlp/data/freq_dict.pbz2.json
+/trnlp/data/prop_tr_lex.pbz2.json
+/trnlp/data/dafNoun.pbz2.json
+/trnlp/data/infNoun.pbz2.json
+/trnlp/data/gen_tr_lex.pbz2.json
+/trnlp.egg-info/
+/venv/

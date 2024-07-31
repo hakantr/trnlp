@@ -88,11 +88,15 @@ def enclisis(f_sfx_var_list: list):
             if f_after_sfx_no == 0:
                 continue
             s_sfx = st_dict[f_table_number][f_after_sfx_no]
+            if 't' in f_sfx[4] and 'ç' in s_sfx[6]:
+                continue
+            if 'ç' in f_sfx[4] and 't' in s_sfx[6]:
+                continue
             s_sfx_var_list = regex_solver(s_sfx[3], s_sfx[5])
-            s_sfx_result = [([ek], [(f_table_number, f_after_sfx_no)], [s_sfx[2]], [s_sfx[5]]) for ek in s_sfx_var_list]
+            s_sfx_result = [([ek], [(f_table_number, f_after_sfx_no)], [s_sfx[2]], [s_sfx[5]], [s_sfx[6]]) for ek in s_sfx_var_list]
             adding = list(f_sfx)
-            adding = [(adding[0] + ekl, adding[1] + positionl, adding[2] + typel, adding[3] + propl)
-                      for ekl, positionl, typel, propl in s_sfx_result]
+            adding = [(adding[0] + ekl, adding[1] + positionl, adding[2] + typel, adding[3] + propl, adding[4] + cogul)
+                      for ekl, positionl, typel, propl, cogul in s_sfx_result]
             [f_sfx_var_list.append(add) for add in adding if suffix_suffix_control(add[0], add[1], add[2], add[3])]
 
     return f_sfx_var_list
@@ -105,7 +109,7 @@ def crt(table_str, table_no):
             continue
         if -1 in row[4]:
             harmonic_list = regex_solver(row[3], row[5])
-            harmonic_list = [([ek], [(table_no, row_no)], [row[2]], [row[5]]) for ek in harmonic_list]
+            harmonic_list = [([ek], [(table_no, row_no)], [row[2]], [row[5]], [row[6]]) for ek in harmonic_list]
             for enc_dict in enclisis(harmonic_list):
                 clean_ekli = ''.join(enc_dict[0])
                 if clean_ekli in temp_dict:
