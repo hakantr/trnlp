@@ -68,9 +68,9 @@ def regex_solver(sfx_regex: str, sfx_prop: tuple) -> list:
 
 
 def suffix_suffix_control(suffix_list, suffix_table, suffix_types, suffix_prop):
-    temp_dict = {'suffixes'   : suffix_list,
+    temp_dict = {'suffixes': suffix_list,
                  'suffixPlace': suffix_table,
-                 'suffixProp' : suffix_prop,
+                 'suffixProp': suffix_prop,
                  'suffixTypes': suffix_types}
     if ssc(temp_dict, 0):
         return True
@@ -88,12 +88,9 @@ def enclisis(f_sfx_var_list: list):
             if f_after_sfx_no == 0:
                 continue
             s_sfx = st_dict[f_table_number][f_after_sfx_no]
-            if 't' in f_sfx[4] and 'ç' in s_sfx[6]:
-                continue
-            if 'ç' in f_sfx[4] and 't' in s_sfx[6]:
-                continue
             s_sfx_var_list = regex_solver(s_sfx[3], s_sfx[5])
-            s_sfx_result = [([ek], [(f_table_number, f_after_sfx_no)], [s_sfx[2]], [s_sfx[5]], [s_sfx[6]]) for ek in s_sfx_var_list]
+            s_sfx_result = [([ek], [(f_table_number, f_after_sfx_no)], [s_sfx[2]], [s_sfx[5]], [s_sfx[6]]) for ek in
+                            s_sfx_var_list]
             adding = list(f_sfx)
             adding = [(adding[0] + ekl, adding[1] + positionl, adding[2] + typel, adding[3] + propl, adding[4] + cogul)
                       for ekl, positionl, typel, propl, cogul in s_sfx_result]
